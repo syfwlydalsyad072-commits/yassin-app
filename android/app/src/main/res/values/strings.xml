@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ياسين-ヤシン:-خبير-الأنمي</string>
+    <string name="title_activity_main">ياسين-ヤシン:-خبير-الأنمي</string>
+    <string name="package_name">com.yassin.app</string>
+    <string name="custom_url_scheme">com.yassin.app</string>
+</resources>

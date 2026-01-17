@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ياسين-ヤシン | المساعد الذكي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000;
+            --accent-color: #ef4444;
+            --text-color: #fff;
+        }
+        [data-theme='sakura'] {
+            --bg-color: #1a0a0f;
+            --accent-color: #f472b6;
+        }
+        [data-theme='night'] {
+            --bg-color: #020617;
+            --accent-color: #6366f1;
+        }
+        [data-theme='ocean'] {
+            --bg-color: #082f49;
+            --accent-color: #0ea5e9;
+        }
+
+        body {
+            font-family: 'Cairo', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            overflow: hidden;
+            transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .eren-bg-container {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-color: var(--bg-color);
+            overflow: hidden;
+        }
+        .eren-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.25;
+            filter: grayscale(40%) brightness(80%);
+        }
+        
+        /* Mood Specific Filters */
+        .eren-mood-intense { filter: grayscale(0%) contrast(1.2) brightness(1) saturate(1.5); opacity: 0.4; }
+        .eren-mood-dark { filter: grayscale(100%) brightness(0.5); opacity: 0.2; }
+        .eren-mood-epic { filter: hue-rotate(45deg) saturate(2) brightness(1.2); opacity: 0.5; }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.8); }
+        }
+        .animate-wave { animation: wave 0.6s infinite; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+        .eren-float { animation: float 20s ease-in-out infinite; }
+
+        @keyframes message-fade-in {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+                filter: blur(4px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+                filter: blur(0);
+            }
+        }
+        .animate-message { 
+            animation: message-fade-in 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; 
+        }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .surprise-text {
+            background: linear-gradient(90deg, #fff, var(--accent-color), #fff);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.36.0",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "marked": "https://esm.sh/marked@12.0.0"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
